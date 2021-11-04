@@ -1,0 +1,18 @@
+J-I-T Boot Availability App
+
+Want to check that 
+for a product that a customer orders 
+that the volume of stock available is reduced by the quantity that the customer ordered.
+
+Test - Item A selected by customer.
+       Check to ensure that quantity of A > 0
+       Customer then selects Item A and quantity 2 (they love the look of these boots!)
+       Check available quantity of A > than customers quantity request for A
+       If  (Quantity of A > Order requested 
+            then submit order, reduce quantity of available A)
+         else
+           (reject order, advise customer 'insufficient availability)
+       Check that Quantity of A has reduced by ordered amount
+      
+  
+
