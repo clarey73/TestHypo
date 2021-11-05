@@ -1,18 +1,43 @@
-J-I-T Boot Availability App
+*Caveat* -  Struggled with how to 
 
-Want to check that 
-for a product that a customer orders 
-that the volume of stock available is reduced by the quantity that the customer ordered.
+UNIT TEST: 
+Allow user to enter a value to place an order.
+See a value has been inputted.
+Check a valid numerical value has been entered, and not a non numerical character added.
+     
+INT TEST: 
+Controller calls to  Service to get stock level of all products
+Service API calls DAO to get object of boots and corresponding volumes
+The DAO retrieves and returns list of boots with volume levels
+Returns a 200 code 
 
-Test - Item A selected by customer.
-       Check to ensure that quantity of A > 0
-       Customer then selects Item A and quantity 2 (they love the look of these boots!)
-       Check available quantity of A > than customers quantity request for A
-       If  (Quantity of A > Order requested 
-            then submit order, reduce quantity of available A)
-         else
-           (reject order, advise customer 'insufficient availability)
-       Check that Quantity of A has reduced by ordered amount
-      
+SYS (SIT) TEST:
+Item A selected by customer, adds quantity 2
+Call made to check available quantity of A > than customers request
+  If  (Quantity of A > Order requested 
+            then Submit order)
+      else
+           ( Reject order, advise customer 'insufficient availability')
+Submit would return a 200 code, Reject would return a bespoke code 
+and message to reflect that whilst the request did not fail the customer's
+order was not completed.
+
+UAT TEST:
+Given a customer is on the boots website
+When the customer selects a particular pair of boots
+Then the should be taken to the specific page for that item
+
+Given a customer is on the specific product page
+When there is sufficient stock
+Then the customer should be able to submit an order for their requested item
+
+Given a customer is on the specific product page
+Where there is insufficient stock
+Then the customer should be greeted with a notification to 'try again when we have re-stocked'
+
+
+
+
+
   
 
